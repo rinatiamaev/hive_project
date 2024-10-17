@@ -1,14 +1,4 @@
-#include <stdlib.h>
-
-int	ft_strlen(char *src)
-{
-	int	len;
-
-	len = 0;
-	while (src[len])
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 char	*ft_strdup(char *src)
 {

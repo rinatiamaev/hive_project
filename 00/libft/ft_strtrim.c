@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "libft.h"
 
 static int	is_in_set(char c, char const *set)
 {
@@ -11,7 +11,7 @@ static int	is_in_set(char c, char const *set)
 	return (0);
 }
 
-int	ft_strlen(char const *str)
+static int	ft_strlen(char const *str)
 {
 	int	len;
 
@@ -21,7 +21,7 @@ int	ft_strlen(char const *str)
 	return (len);
 }
 
-char	*ft_strncpy(char *dest, char const *src, unsigned int n)
+static char	*ft_strncpy(char *dest, char const *src, unsigned int n)
 {
 	unsigned int	i;
 

@@ -1,6 +1,6 @@
-#include <stdlib.h>
+#include "libft.h"
 
-int	ft_strlen(char const *str)
+static int	ft_strlen(char const *str)
 {
 	int	len;
 
@@ -10,7 +10,7 @@ int	ft_strlen(char const *str)
 	return (len);
 }
 
-char	*ft_strdup(char *src)
+static char	*ft_strdup(char *src)
 {
 	char	*dup;
 	int		i;
@@ -28,7 +28,7 @@ char	*ft_strdup(char *src)
 	return (dup);
 }
 
-char	*ft_strncpy(char *dest, char const *src, unsigned int n)
+static char	*ft_strncpy(char *dest, char const *src, unsigned int n)
 {
 	unsigned int	i;
 

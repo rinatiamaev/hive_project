@@ -1,3 +1,5 @@
+#include "libft.h"
+
 int	ft_strlcpy(char *dest, const char *src, int destsize)
 {
 	int	i;

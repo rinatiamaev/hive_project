@@ -1,3 +1,5 @@
+#include "libft.h"
+
 char	*ft_strnstr(const char *str, const char *to_find, int len)
 {
 	int	i;

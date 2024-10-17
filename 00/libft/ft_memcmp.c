@@ -1,3 +1,5 @@
+#include "libft.h"
+
 int	ft_memcmp(const void *s1, const void *s2, int n)
 {
 	const unsigned char	*ptr1;

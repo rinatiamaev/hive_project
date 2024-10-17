@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "libft.h"
 
 static int	is_separator(char check, char c)
 {
