@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static int	ft_strlen(char const *str)
+int	ft_strlen(char const *str)
 {
 	int	len;
 
@@ -10,7 +10,7 @@ static int	ft_strlen(char const *str)
 	return (len);
 }
 
-static char	*ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
 	char	*dup;
 	int		i;

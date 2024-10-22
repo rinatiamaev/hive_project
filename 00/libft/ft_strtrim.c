@@ -11,7 +11,7 @@ static int	is_in_set(char c, char const *set)
 	return (0);
 }
 
-static int	ft_strlen(char const *str)
+int	ft_strlen(char const *str)
 {
 	int	len;
 

@@ -1,10 +1,10 @@
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, int n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*ptr;
 	unsigned char		letter;
-	int					i;
+	size_t				i;
 
 	ptr = (const unsigned char *)s;
 	letter = (unsigned char)c;

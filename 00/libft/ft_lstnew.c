@@ -11,3 +11,16 @@ t_list	*ft_lstnew(void *content)
 	new_node->next = NULL;
 	return (new_node);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	t_list *new;
+	char *content = "This is first element";
+	new = ft_lstnew(content);
+	if (new)
+		printf("%s\n", (char *)new->content);
+	free(new);
+	return (0);
+}*/
