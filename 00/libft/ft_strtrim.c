@@ -11,55 +11,24 @@ static int	is_in_set(char c, char const *set)
 	return (0);
 }
 
-int	ft_strlen(char const *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-static char	*ft_strncpy(char *dest, char const *src, unsigned int n)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i < n && src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
-	int		len;
-	char	*trim_str;
+	int	start;
+	int	end;
 
-	if (!s1 || !set)
-		return (NULL);
-	while (s1[start] && is_in_set(s1[start], set))
-		start++;
+	if (!s1)
+		return (ft_strdup(""));
+	if (!set)
+		return (ft_strdup(s1));
+	start = 0;
 	end = ft_strlen(s1);
-	while (end > start && is_in_set(s1[end - 1], set))
+	while (is_in_set(s1[start], set))
+		start++;
+	if (start == end)
+		return (ft_strdup(""));
+	while (is_in_set(s1[end - 1], set))
 		end--;
-	len = end - start;
-	trim_str = (char *)malloc(len + 1);
-	if (!trim_str)
-		return (NULL);
-	ft_strncpy(trim_str, &s1[start], len);
-	trim_str[len] = '\0';
-	return (trim_str);
+	return (ft_substr(s1, start, end - start));
 }
 /*
 #include <stdio.h>
