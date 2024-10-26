@@ -7,7 +7,7 @@ int	ft_putstr(char *str)
 	len = 0;
 	if (!str)
 		return (write(1, "(null)", 6));
-	while(*str)
+	while (*str)
 		len += write(1, str++, 1);
 	return (len);
 }

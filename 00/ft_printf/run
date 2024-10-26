@@ -1,2 +1,2 @@
 make
-gcc test.c -o test -L. -lftprintf -Llibft -lft
+gcc test.c -o test -L. -lftprintf
