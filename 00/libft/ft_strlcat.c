@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/28 15:08:55 by riamaev           #+#    #+#             */
+/*   Updated: 2024/10/28 15:11:57 by riamaev          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_strlcat(char *dest, char *src, int destsize)
+size_t	ft_strlcat(char *dest, char *src, size_t destsize)
 {
-	int	destlen;
-	int	srclen;
-	int	i;
+	size_t	destlen;
+	size_t	srclen;
+	size_t	i;
 
 	destlen = ft_strlen(dest);
 	srclen = ft_strlen(src);

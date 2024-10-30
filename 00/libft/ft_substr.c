@@ -1,32 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/29 09:46:15 by riamaev           #+#    #+#             */
+/*   Updated: 2024/10/29 09:49:41 by riamaev          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-int	ft_strlen(char const *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-char	*ft_strdup(char *src)
-{
-	char	*dup;
-	int		i;
-
-	i = 0;
-	dup = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
-	if (!dup)
-		return (NULL);
-	while (src[i])
-	{
-		dup[i] = src[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
-}
 
 static char	*ft_strncpy(char *dest, char const *src, unsigned int n)
 {
@@ -72,6 +56,6 @@ int	main(void)
 {
 	char *src = "Hello, HIVE!!!";
 	char *substr = ft_substr(src, 7, 4);
-	printf("%s", substr);
+	printf("string is: '%s' substring in pos 7 with len = 4 is: '%s'", src, substr);
 	return (0);
 }*/

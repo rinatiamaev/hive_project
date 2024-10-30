@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/28 15:49:53 by riamaev           #+#    #+#             */
+/*   Updated: 2024/10/29 12:30:35 by riamaev          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
@@ -20,22 +32,14 @@ void	*ft_memchr(const void *s, int c, size_t n)
 /*
 #include <stdio.h>
 
-int     ft_strlen(char *str)
-{
-        int     len;
-
-        len = 0;
-        while (str[len])
-                len++;
-        return (len);
-}
-
 int	main(void)
 {
+	char	c = 'F';
 	char	str[] = "Hello, Friends!";
-	char	*res = ft_memchr(str, 'F', ft_strlen(str));
+	char	*res = ft_memchr(str, c, ft_strlen(str));
 	if (res != (void *)0)
-		printf("Character found in position %ld", res - str);
+		printf("Character '%c' found in position:
+	       	%ld, in string 'Hello, Friends'", c, res - str);
 	else
 		printf("Character not found\n");
 	return (0);

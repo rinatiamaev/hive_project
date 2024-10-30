@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/29 09:53:54 by riamaev           #+#    #+#             */
+/*   Updated: 2024/10/29 09:58:53 by riamaev          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	is_separator(char check, char c)
@@ -7,7 +19,7 @@ static int	is_separator(char check, char c)
 	return (0);
 }
 
-static int	count_words(char *str, char c)
+static int	count_words(char const *str, char c)
 {
 	int	i;
 	int	count;
@@ -26,7 +38,7 @@ static int	count_words(char *str, char c)
 	return (count);
 }
 
-static char	*copy_word(char *str, char c)
+static char	*copy_word(char const *str, char c)
 {
 	int		i;
 	char	*word;
@@ -48,45 +60,45 @@ static char	*copy_word(char *str, char c)
 	return (word);
 }
 
-char	**ft_split(char *str, char c)
+char	**ft_split(char const *s, char c)
 {
-	char	**result;
+	char	**res;
 	int		i;
 	int		j;
 	int		words;
 
-	words = count_words(str, c);
-	result = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!result)
+	words = count_words(s, c);
+	res = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!res)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (str[i])
+	while (s[i])
 	{
-		while (str[i] && is_separator(str[i], c))
+		while (s[i] && is_separator(s[i], c))
 			i++;
-		if (str[i])
+		if (s[i])
 		{
-			result[j] = copy_word(&str[i], c);
+			res[j] = copy_word(&s[i], c);
 			j++;
 		}
-		while (str[i] && !is_separator(str[i], c))
+		while (s[i] && !is_separator(s[i], c))
 			i++;
 	}
-	result[j] = 0;
-	return (result);
+	res[j] = 0;
+	return (res);
 }
 /*
 #include <stdio.h>
 
 int	main(void)
 {
-	char	**result = ft_split("FORD KIA MERS BMW TESLA", ' ');
+	char	**res = ft_split("FORD KIA MERS BMW TESLA", ' ');
 	int i = 0;
 	
-	while (result[i] != NULL)
+	while (res[i] != NULL)
 	{
-		printf("%s\n", result[i]);
+		printf("%s\n", res[i]);
 		i++;
 	}
 	return (0); 
