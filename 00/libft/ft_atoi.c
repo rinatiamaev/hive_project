@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: riamaev <student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 09:26:22 by riamaev           #+#    #+#             */
-/*   Updated: 2024/10/29 09:27:24 by riamaev          ###   ########.fr       */
+/*   Updated: 2024/10/30 11:36:36 by riamaev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,3 @@ int	ft_atoi(char *str)
 	}
 	return (sign * res);
 }
-/*
-#include <stdio.h>
-
-int	main(int ac, char **av)
-{
-	if (ac == 2)
-		printf("%d\n", ft_atoi(av[1]));
-	return (0);
-}*/

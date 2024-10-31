@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: riamaev <student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:15:35 by riamaev           #+#    #+#             */
-/*   Updated: 2024/10/28 15:18:48 by riamaev          ###   ########.fr       */
+/*   Updated: 2024/10/31 09:49:09 by riamaev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (c == '\0')
 		return ((char *)s);
-	return ((void *)0);
+	return (NULL);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	const char *str = "Hello, HIVE!";
-	char c = '!';
-	char *res = ft_strchr(str, c);
-	if (res != (void *)0)
-		printf("Letter '%c' found in position:
-		%ld, in string 'Hello, HIVE!'\n", c, res - str);
-	else
-		printf("Letter %c not found in string", c);
-	return (0);
-}*/

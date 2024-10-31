@@ -34,18 +34,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	const char *big = "Hello, HIVE!!!";
-	const char *little = "HIVE";
-	int len = 12;
-	char *res = ft_strnstr(big, little, len);
-	if (res != (void *)0)
-		printf("String '%s' found in string %s: \n", little, res);
-	else
-		printf("Not found");
-	return (0);
-}*/

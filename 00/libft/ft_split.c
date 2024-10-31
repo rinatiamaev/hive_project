@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
+/*   By: riamaev <student.hive.fi>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 09:53:54 by riamaev           #+#    #+#             */
-/*   Updated: 2024/10/29 09:58:53 by riamaev          ###   ########.fr       */
+/*   Updated: 2024/10/31 09:51:26 by riamaev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 static int	is_separator(char check, char c)
 {
-	if (check == c)
-		return (1);
-	return (0);
+	return (check == c);
 }
 
 static int	count_words(char const *str, char c)
@@ -88,18 +86,3 @@ char	**ft_split(char const *s, char c)
 	res[j] = 0;
 	return (res);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	**res = ft_split("FORD KIA MERS BMW TESLA", ' ');
-	int i = 0;
-	
-	while (res[i] != NULL)
-	{
-		printf("%s\n", res[i]);
-		i++;
-	}
-	return (0); 
-}*/

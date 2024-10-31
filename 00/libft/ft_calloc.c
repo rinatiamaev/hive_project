@@ -26,25 +26,3 @@ void	*ft_calloc(size_t nmem, size_t size)
 	ft_bzero(ptr, total);
 	return (ptr);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	size_t *arr;
-	size_t n = 10;
-	size_t i = 0;
-	arr = (size_t *)ft_calloc(n, sizeof(size_t));
-	if (arr == NULL)
-	{
-		printf("memory allocation failed\n");
-		return (1);
-	}
-	while (i < n)
-	{
-		printf("%ld\n", arr[i++]);
-	}
-	free (arr);
-	return (0);
-	
-}*/

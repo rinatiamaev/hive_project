@@ -51,18 +51,3 @@ char	*ft_itoa(int n)
 	}
 	return (res);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	int n = 97519890;
-	int m = -2098309;
-	int k = 0;
-	int s = -2147483648;
-	printf("%s\n", ft_itoa(n));
-	printf("%s\n", ft_itoa(m));
-	printf("%s\n", ft_itoa(k));
-	printf("%s\n", ft_itoa(s));
-	return (0);
-}*/

@@ -27,19 +27,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)s);
 	return ((char *)(last));
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	const char *str = "Hello, HIVE!!!";
-	char c = 'H';
-	char *res = ft_strrchr(str, c);
-	if (res != (void *)0)
-		printf("Last character '%c' 
-		found in position: %ld, 
-		in string 'Hello, HIVE!!!'", c, res - str);
-	else
-		printf("Character %c not found in string", c);
-	return (0);
-}*/

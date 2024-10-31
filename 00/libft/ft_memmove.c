@@ -40,13 +40,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	src[] = "HELLO, HIVE!";
-	ft_memmove(src + 6, src, 5);
-	printf("%s", src);
-	return (0);
-}*/

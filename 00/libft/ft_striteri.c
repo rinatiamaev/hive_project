@@ -25,18 +25,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
-/*
-#include <stdio.h>
-
-void	ft_increment_char(unsigned int i, char *s)
-{
-	*s += i;
-}
-
-int	main(void)
-{
-	char s[] = "aaa";
-	ft_striteri(s, ft_increment_char);
-	printf("%s", s);
-	return (0);
-}*/

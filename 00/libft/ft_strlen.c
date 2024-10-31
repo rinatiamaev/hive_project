@@ -21,12 +21,3 @@ size_t	ft_strlen(const char *str)
 		len++;
 	return (len);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char *str = "I am builder";
-	printf("'I am builder' string length is: %ld\n", ft_strlen(str));
-	return (0);
-}*/

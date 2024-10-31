@@ -25,18 +25,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	buffer[15];
-	int		i = 0;
-	ft_bzero(buffer, sizeof(buffer));
-	while (i < (int)sizeof(buffer))
-	{
-		printf("%d ", buffer[i]);
-		i++;
-	}
-	return (0);
-}*/

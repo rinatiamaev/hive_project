@@ -18,14 +18,3 @@ int	ft_tolower(int c)
 		return (c - 'A' + 'a');
 	return (c);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char c = 'A';
-	char d = '3';
-	printf("%c\n", ft_tolower(c));
-	printf("%c\n", ft_tolower(d));
-	return (0);
-}*/

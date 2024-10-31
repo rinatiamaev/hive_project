@@ -28,15 +28,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char	src[] = "Hello, HIVE!";
-	char	dest[20];
-
-	ft_memcpy(dest, src, ft_strlen(src) + 1);
-	printf("%s", dest);
-	return (0);
-}*/

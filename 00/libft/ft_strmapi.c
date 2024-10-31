@@ -31,29 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	new_s[i] = '\0';
 	return (new_s);
 }
-/*
-#include <stdio.h>
-
-char	ft_change_k(unsigned int i, char c)
-{
-	if (i < 100)
-	{
-		if (c == 'k')
-			c = 'l';
-	}
-	return (c);
-}
-
-int	main(void)
-{
-	char *str = "Hekko, HIVE!!";
-	char *new = ft_strmapi(str, ft_change_k);
-	if (new)
-	{
-		printf("%s\n", new);
-		free(new);
-	}
-	else
-		printf("Memory allocated failed\n");
-	return (0);
-}*/

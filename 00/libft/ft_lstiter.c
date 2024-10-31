@@ -22,23 +22,3 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		lst = lst->next;
 	}
 }
-/*
-#include <stdio.h>
-
-void	ft_print_content(void *content)
-{
-	printf("%s\n", (char *)content);
-}
-
-int	main(void)
-{
-	t_list	*new1 = ft_lstnew("node1");
-	t_list  *new2 = ft_lstnew("node2");
-	t_list  *new3 = ft_lstnew("node3");
-	if (!new1 || !new2 || !new3)
-		return (1);
-	new1->next = new2;
-	new2->next = new3;
-	ft_lstiter(new1, ft_print_content);
-	return (0);
-}*/

@@ -42,20 +42,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		end--;
 	return (ft_substr(s1, start, end - start));
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char *str = " ,2Hello, HIVE!, 2";
-	char *set = ", 2";
-	char *trim_str = ft_strtrim(str, set);
-	if (trim_str)
-	{
-		printf("%s", trim_str);
-		free(trim_str);
-	}
-	else
-		printf("Memory allocated failed");
-	return (0);
-}*/

@@ -29,13 +29,3 @@ char	*ft_strdup(const char *s)
 	dup[i] = '\0';
 	return (dup);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char *src = "Hello World!";
-	char *dup = ft_strdup(src);
-	printf("src string is: '%s', dup string is: '%s'\n", src, dup);
-	return (0);
-}*/

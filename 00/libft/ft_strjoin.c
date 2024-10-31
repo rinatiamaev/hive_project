@@ -64,17 +64,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strcat(new_str, s2);
 	return (new_str);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char *s1 = "Hello, ";
-	char *s2 = "HIVE!!!";
-	char *res = ft_strjoin(s1, s2);
-	if (res != NULL)
-		printf("%s\n", res);
-	else
-		printf("Memory allocated failed\n");
-	return (0);
-}*/

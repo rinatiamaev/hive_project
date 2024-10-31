@@ -49,13 +49,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr[real_len] = '\0';
 	return (substr);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char *src = "Hello, HIVE!!!";
-	char *substr = ft_substr(src, 7, 4);
-	printf("string is: '%s' substring in pos 7 with len = 4 is: '%s'", src, substr);
-	return (0);
-}*/
