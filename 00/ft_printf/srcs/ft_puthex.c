@@ -1,0 +1,26 @@
+#include "../ft_printf.h"
+
+int	ft_puthex(unsigned long long n, const char type)
+{
+	int	len;
+
+	len = 0;
+	if (n >= 16)
+	{
+		len += ft_puthex(n / 16, type);
+		len += ft_puthex(n % 16, type);
+	}
+	else
+	{
+		if (n < 10)
+			len += ft_putchar(n + '0');
+		else
+		{
+			if (type == 'x')
+				len += ft_putchar(n - 10 + 'a');
+			else if (type == 'X')
+				len += ft_putchar(n - 10 + 'A');
+		}
+	}
+	return (len);
+}
