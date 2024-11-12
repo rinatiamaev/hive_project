@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: riamaev <student.hive.fi>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/06 10:09:22 by riamaev           #+#    #+#             */
+/*   Updated: 2024/11/12 09:30:35 by riamaev          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 int	check_format(const char format, va_list args)
@@ -19,6 +31,11 @@ int	check_format(const char format, va_list args)
 		len += ft_puthex(va_arg(args, unsigned int), format);
 	else if (format == '%')
 		len += ft_putchar('%');
+	else
+	{
+		ft_putstr("%\n");
+		return (-1);
+	}
 	return (len);
 }
 
@@ -26,14 +43,22 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		len;
+	int		errorcheck;
 
+	len = 0;
 	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			len += check_format(*format, args);
+			errorcheck = check_format(*format, args);
+			if (errorcheck == -1)
+			{
+				va_end(args);
+				return (-1);
+			}
+			len += errorcheck;
 		}
 		else
 			len += ft_putchar(*format);
@@ -41,29 +66,4 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(args);
 	return (len);
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	int a = 42;
-	int *p = &a;
-	printf("Here is standart printf\n");
-	printf("%c, %c\n", 'a', 100);
-	printf("%s\n", "Hello, HIVE!!!");
-	printf("%p\n", p);
-	printf("%d, %d, %i\n", -42, 1001, 21212121212121212);
-	printf("%u\n", 1);
-	printf("%x, %X\n", 255, 255);
-	printf("%%\n");
-	ft_printf("Here is my implementing of printf\n");
-	ft_printf("%c, %c\n", 'a', 100);
-	ft_printf("%s\n", "Hello, HIVE!!!");
-	ft_printf("%p\n", p);
-	ft_printf("%d, %d, %i\n", -42, 1001, 21212121212121212);
-	ft_printf("%u\n", 1);
-	ft_printf("%x, %X\n", 255, 255);
-	ft_printf("%%\n");
-	return (0);
 }
