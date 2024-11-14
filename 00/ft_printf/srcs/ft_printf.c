@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riamaev <student.hive.fi>                  +#+  +:+       +#+        */
+/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:09:22 by riamaev           #+#    #+#             */
 /*   Updated: 2024/11/12 09:30:35 by riamaev          ###   ########.fr       */
@@ -33,7 +33,7 @@ int	check_format(const char format, va_list args)
 		len += ft_putchar('%');
 	else
 	{
-		ft_putstr("%\n");
+		ft_putstr("Not supported format\n");
 		return (-1);
 	}
 	return (len);
