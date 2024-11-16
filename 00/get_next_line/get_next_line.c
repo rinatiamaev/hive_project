@@ -5,102 +5,103 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 11:21:00 by riamaev           #+#    #+#             */
-/*   Updated: 2024/11/14 19:08:19 by riamaev          ###   ########.fr       */
+/*   Created: 2024/11/13 11:11:31 by riamaev           #+#    #+#             */
+/*   Updated: 2024/11/16 20:33:26 by riamaev          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int  read_buffer(int fd, char **buffer_storage, char *buffer)
+static char	*extract_line(char *buffer_storage)
 {
-    char    *tmp;
-    int     bytes;
+	int		i;
+	char	*line;
 
-    ft_memset(buffer, 0, BUFFER_SIZE + 1);
-    bytes = read(fd, buffer, BUFFER_SIZE);
-    if (bytes < 0)
-    {
-        free(*buffer_storage);
-        *buffer_storage = NULL;
-        return (-1);
-    }
-    if (bytes == 0)
-        return (bytes);
-    tmp = ft_strjoin(*buffer_storage, buffer);
-    free(*buffer_storage);
-    *buffer_storage = tmp;
-    return (bytes);
+	i = 0;
+	if (!buffer_storage[i])
+		return (NULL);
+	while (buffer_storage[i] && buffer_storage[i] != '\n')
+		i++;
+	line = (char *)malloc(sizeof(char) * (i + 2));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (buffer_storage[i] && buffer_storage[i] != '\n')
+	{
+		line[i] = buffer_storage[i];
+		i++;
+	}
+	if (buffer_storage[i] == '\n')
+	{
+		line[i] = buffer_storage[i];
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
 }
 
-static void remove_result(char **buffer_storage)
+static char	*update_buffer_storage(char *buffer_storage)
 {
-    char    *nl;
-    char    *tmp;
+	int		i;
+	int		j;
+	char	*new_buffer_storage;
 
-    nl = ft_strchr(*buffer_storage, '\n');
-    if (!nl)
-    {
-        free(*buffer_storage);
-        *buffer_storage = NULL;
-        return ;
-    }
-    tmp = ft_strdup(nl + 1);
-    free(*buffer_storage);
-    *buffer_storage = tmp;
-    if (**buffer_storage == '\0')
-    {
-        free(*buffer_storage);
-        *buffer_storage = NULL;
-    }
+	i = 0;
+	while (buffer_storage[i] && buffer_storage[i] != '\n')
+		i++;
+	if (!buffer_storage[i])
+	{
+		free(buffer_storage);
+		return (NULL);
+	}
+	new_buffer_storage = (char *)malloc(sizeof(char)
+			* (ft_strlen(buffer_storage) - i + 1));
+	if (!new_buffer_storage)
+		return (NULL);
+	i++;
+	j = 0;
+	while (buffer_storage[i])
+		new_buffer_storage[j++] = buffer_storage[i++];
+	new_buffer_storage[j] = '\0';
+	free(buffer_storage);
+	return (new_buffer_storage);
 }
 
-static void get_result(char **buffer_storage, char **result)
+static char	*read_and_store(int fd, char *buffer_storage)
 {
-    char    *nl;
-    size_t  len;
-    size_t  i;
+	char	*buffer;
+	int		read_bytes;
 
-    nl = ft_strchr(*buffer_storage, '\n');
-    if (nl)
-        len = nl - *buffer_storage + 1;
-    else
-        len = ft_strlen(*buffer_storage);
-    *result = (char *)malloc((len + 1) * sizeof(char));
-    if (!*result)
-        return ;
-    i = 0;
-    while (i < len)
-    {
-        (*result)[i] = (*buffer_storage)[i];
-        i++;
-    }
-    (*result)[i] = '\0';
+	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buffer)
+		return (NULL);
+	read_bytes = 1;
+	while (!ft_strchr(buffer_storage, '\n') && read_bytes != 0)
+	{
+		read_bytes = read(fd, buffer, BUFFER_SIZE);
+		if (read_bytes == -1)
+		{
+			free(buffer);
+			return (NULL);
+		}
+		buffer[read_bytes] = '\0';
+		buffer_storage = ft_strjoin(buffer_storage, buffer);
+	}
+	free(buffer);
+	return (buffer_storage);
 }
 
-char    *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-    static char *buffer_storage = NULL;
-    char        *result;
-    char        *buffer;
-    int         bytes;
+	char		*line;
+	static char	*buffer_storage;
 
-    if (fd < 0 || BUFFER_SIZE <= 0)
-        return (NULL);
-    buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-    if (!buffer)
-        return (NULL);
-    bytes = 1;
-    while (!ft_strchr(buffer_storage, '\n') && bytes > 0)
-        bytes = read_buffer(fd, &buffer_storage, buffer);
-    free(buffer);
-    if (bytes == -1 || !buffer_storage || ft_strlen(buffer_storage) == 0)
-    {
-        free(buffer_storage);
-        buffer_storage = NULL;
-        return (NULL);
-    }
-    get_result(&buffer_storage, &result);
-    remove_result(&buffer_storage);
-    return (result);
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	buffer_storage = read_and_store(fd, buffer_storage);
+	if (!buffer_storage)
+		return (NULL);
+	line = extract_line(buffer_storage);
+	buffer_storage = update_buffer_storage(buffer_storage);
+	return (line);
 }

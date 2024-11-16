@@ -1,5 +1,5 @@
-#include <fcntl.h> // Для open
-#include <stdio.h> // Для printf
+#include <fcntl.h>
+#include <stdio.h>
 #include "get_next_line.h"
 
 int main(int argc, char **argv)
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
     fd = open(argv[1], O_RDONLY);
     if (fd == -1)
     {
-        perror("Error opening file");
+        printf("Error opening file");
         return (1);
     }
 
@@ -27,5 +27,14 @@ int main(int argc, char **argv)
     }
 
     close(fd);
+/*
+    printf("Enter text (Ctrl+C to end):\n");
+    fd = 0;
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("%s", line);
+        free(line);
+    }
+*/
     return (0);
 }
