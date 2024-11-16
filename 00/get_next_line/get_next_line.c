@@ -12,12 +12,12 @@
 
 #include "get_next_line.h"
 
-static int	read_buffer(int fd, char **buffer_storage, char *buffer)
+static int  read_buffer(int fd, char **buffer_storage, char *buffer)
 {
-    char	*tmp;
-    int		bytes;
+    char    *tmp;
+    int     bytes;
 
-    memset(buffer, 0, BUFFER_SIZE + 1);
+    ft_memset(buffer, 0, BUFFER_SIZE + 1);
     bytes = read(fd, buffer, BUFFER_SIZE);
     if (bytes < 0)
     {
@@ -33,10 +33,10 @@ static int	read_buffer(int fd, char **buffer_storage, char *buffer)
     return (bytes);
 }
 
-static void	remove_result(char **buffer_storage)
+static void remove_result(char **buffer_storage)
 {
-    char	*nl;
-    char	*tmp;
+    char    *nl;
+    char    *tmp;
 
     nl = ft_strchr(*buffer_storage, '\n');
     if (!nl)
@@ -55,11 +55,11 @@ static void	remove_result(char **buffer_storage)
     }
 }
 
-static void	get_result(char **buffer_storage, char **result)
+static void get_result(char **buffer_storage, char **result)
 {
-    char	*nl;
-    size_t	len;
-    size_t	i;
+    char    *nl;
+    size_t  len;
+    size_t  i;
 
     nl = ft_strchr(*buffer_storage, '\n');
     if (nl)
@@ -78,12 +78,12 @@ static void	get_result(char **buffer_storage, char **result)
     (*result)[i] = '\0';
 }
 
-char	*get_next_line(int fd)
+char    *get_next_line(int fd)
 {
-    static char	*buffer_storage[2048];
-    char		*result;
-    char		*buffer;
-    int			bytes;
+    static char *buffer_storage = NULL;
+    char        *result;
+    char        *buffer;
+    int         bytes;
 
     if (fd < 0 || BUFFER_SIZE <= 0)
         return (NULL);
@@ -91,16 +91,16 @@ char	*get_next_line(int fd)
     if (!buffer)
         return (NULL);
     bytes = 1;
-    while (!ft_strchr(buffer_storage[fd], '\n') && bytes > 0)
-        bytes = read_buffer(fd, &buffer_storage[fd], buffer);
+    while (!ft_strchr(buffer_storage, '\n') && bytes > 0)
+        bytes = read_buffer(fd, &buffer_storage, buffer);
     free(buffer);
-    if (bytes == -1 || !buffer_storage[fd] || ft_strlen(buffer_storage[fd]) == 0)
+    if (bytes == -1 || !buffer_storage || ft_strlen(buffer_storage) == 0)
     {
-        free(buffer_storage[fd]);
-        buffer_storage[fd] = NULL;
+        free(buffer_storage);
+        buffer_storage = NULL;
         return (NULL);
     }
-    get_result(&buffer_storage[fd], &result);
-    remove_result(&buffer_storage[fd]);
+    get_result(&buffer_storage, &result);
+    remove_result(&buffer_storage);
     return (result);
 }
