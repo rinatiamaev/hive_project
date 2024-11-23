@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riamaev <student.hive.fi>                  +#+  +:+       +#+        */
+/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:49:53 by riamaev           #+#    #+#             */
 /*   Updated: 2024/10/31 09:48:02 by riamaev          ###   ########.fr       */

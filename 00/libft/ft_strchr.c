@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riamaev <student.hive.fi>                  +#+  +:+       +#+        */
+/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:15:35 by riamaev           #+#    #+#             */
 /*   Updated: 2024/10/31 09:49:09 by riamaev          ###   ########.fr       */

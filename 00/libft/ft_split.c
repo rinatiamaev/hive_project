@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riamaev <student.hive.fi>                  +#+  +:+       +#+        */
+/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 09:53:54 by riamaev           #+#    #+#             */
 /*   Updated: 2024/10/31 09:51:26 by riamaev          ###   ########.fr       */

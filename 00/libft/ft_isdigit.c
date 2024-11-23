@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riamaev <student.hive.fi>                  +#+  +:+       +#+        */
+/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:53:04 by riamaev           #+#    #+#             */
 /*   Updated: 2024/10/30 11:37:50 by riamaev          ###   ########.fr       */

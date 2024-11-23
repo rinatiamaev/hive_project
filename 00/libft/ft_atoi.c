@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riamaev <student.hive.fi>                  +#+  +:+       +#+        */
+/*   By: riamaev <riamaev@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 09:26:22 by riamaev           #+#    #+#             */
 /*   Updated: 2024/10/30 11:36:36 by riamaev          ###   ########.fr       */
