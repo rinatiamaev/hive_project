@@ -12,55 +12,30 @@
 
 #include "libft.h"
 
-static char	*ft_strcat(char *dest, char const *src)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	i = 0;
-	j = 0;
-	while (dest[i])
-		i++;
-	while (src[j])
+	if (!s1)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		s1 = (char *)malloc(1 * sizeof(char));
+		s1[0] = '\0';
 	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-static char	*ft_strcpy(char *dest, char const *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*new_str;
-	size_t	len1;
-	size_t	len2;
-	size_t	total_len;
-
 	if (!s1 || !s2)
 		return (NULL);
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	total_len = len1 + len2;
-	new_str = (char *)malloc(total_len + 1);
-	if (!new_str)
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (str == NULL)
 		return (NULL);
-	ft_strcpy(new_str, s1);
-	ft_strcat(new_str, s2);
-	return (new_str);
+	i = -1;
+	j = 0;
+	if (s1)
+		while (s1[++i])
+			str[i] = s1[i];
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
+	return (str);
 }
